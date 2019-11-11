@@ -1,0 +1,14 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Welcome</h1>
+        <h2>Users list:</h2>
+        <ul>
+            {% for u in users %}
+                <li>
+                    {{ u.first_name }}  {{ u.last_name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
