@@ -25,7 +25,7 @@ SECRET_KEY = 'f12#kz6you38xy%s1tm=n(cypmqolo81dbw4(4qm&-sq16kw)+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'users',
+    'django_celery_results'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,10 @@ EMAIL_HOST_PASSWORD = '^uD3d%cdf&Iw'
 EMAIL_PORT = 587
 
 AUTH_USER_MODEL = 'users.User'
+
+CELERY_BROKER_URL = 'amqp://localhost//'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CACHE_BACKEND = 'django-cache'
